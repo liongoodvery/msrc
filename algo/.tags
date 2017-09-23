@@ -1,0 +1,37 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+EXE	Makefile	/^EXE=${GEN_EXE}$/;"	m
+Foo	listTest.c	/^struct Foo$/;"	s	file:
+GEN_EXE	Makefile	/^GEN_EXE=listTest$/;"	m
+LIST_H	include/list.h	8;"	d
+List	include/list.h	/^} List;$/;"	t	typeref:struct:List_
+ListElmt	include/list.h	/^} ListElmt;$/;"	t	typeref:struct:ListElmt_
+ListElmt_	include/list.h	/^typedef struct ListElmt_ {$/;"	s
+List_	include/list.h	/^typedef struct List_ {$/;"	s
+a	listTest.c	/^	int a;$/;"	m	struct:Foo	file:
+b	listTest.c	/^	int b;$/;"	m	struct:Foo	file:
+data	include/list.h	/^void               *data;$/;"	m	struct:ListElmt_
+destroy	include/list.h	/^void               (*destroy)(void *data);$/;"	m	struct:List_
+head	include/list.h	/^ListElmt           *head;$/;"	m	struct:List_
+list_data	include/list.h	67;"	d
+list_destroy	list.c	/^void list_destroy(List *list) {$/;"	f
+list_head	include/list.h	59;"	d
+list_init	list.c	/^void list_init(List *list, void (*destroy)(void *data)) {$/;"	f
+list_ins_next	list.c	/^int list_ins_next(List *list, ListElmt *element, const void *data) {$/;"	f
+list_is_head	include/list.h	63;"	d
+list_is_tail	include/list.h	65;"	d
+list_next	include/list.h	69;"	d
+list_rem_next	list.c	/^int list_rem_next(List *list, ListElmt *element, void **data){$/;"	f
+list_size	include/list.h	57;"	d
+list_tail	include/list.h	61;"	d
+main	Sample.c	/^int main(int argc, char *argv[]) {$/;"	f
+main	Test.c	/^int main(){$/;"	f
+main	listTest.c	/^int main()$/;"	f
+match	include/list.h	/^int                (*match)(const void *key1, const void *key2);$/;"	m	struct:List_
+next	include/list.h	/^struct ListElmt_   *next;$/;"	m	struct:ListElmt_	typeref:struct:ListElmt_::ListElmt_
+size	include/list.h	/^int                size;$/;"	m	struct:List_
+tail	include/list.h	/^ListElmt           *tail;$/;"	m	struct:List_

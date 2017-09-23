@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <title>List</title>
+    <script src="bower_components/react/react.js"></script>
+    <script src="bower_components/react/react-dom.js"></script>
+    <script src="bower_components/babel/browser.js"></script>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+
+
+    function ListItem(props) {
+        const value = props.value;
+        return (
+                <li>{value}</li>
+        );
+
+    }
+
+    function NumberList(props) {
+        const numbers = props.numbers;
+        return (
+                <ul>{
+                    numbers.map((num) => (<ListItem key={num.toString()} value={num*20}/>))
+                }</ul>
+        );
+
+    }
+
+    const element = (
+            <NumberList numbers={[1, 2, 3, 4, 5]}/>
+    );
+
+    ReactDOM.render(
+        element,
+        document.getElementById('root')
+    );
+
+
+</script>
+</body>
+</html>

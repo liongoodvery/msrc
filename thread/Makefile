@@ -1,6 +1,9 @@
 include ../Makefile.inc
 
-GEN_EXE=Sample Test
+GEN_EXE=Sample \
+        Test \
+        thread1
+
 LDLIBS+=-lpthread
 EXE=${GEN_EXE}
 

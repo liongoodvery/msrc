@@ -1,12 +1,4 @@
-DIRS=test \
-	fileio \
-	process \
-	sharelib \
-	pipe \
-	shm \
-	signal \
-	tools \
-	thread
+DIRS=test
 
 all: 	
 	@ for dir in ${DIRS}; do (cd $${dir}; ${MAKE}) ; done

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8"/>
+  <title>Hello World</title>
+  <script src="bower_components/react/react.js"></script>
+  <script src="bower_components/react/react-dom.js"></script>
+  <script src="bower_components/babel/browser.js"></script>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+
+  const scaleName = {
+    c: 'Celsius',
+    f: 'Fahrenheit'
+  };
+
+  class BoilingVerdict extends React.Component {
+    constructor(props) {
+      super(props);
+    }
+
+    render() {
+      if (this.props.celsius > 100) {
+        return <p>The water would boil.</p>;
+      }
+      return <p>The water would not boil.</p>;
+    }
+
+  }
+
+
+  class Calculator extends React.Component {
+    constructor(props) {
+      super(props);
+      this.state = {temperature: ''};
+      this.handleChange = this.handleChange.bind(this);
+    }
+
+    handleChange(e) {
+      this.setState({temperature: e.target.value});
+    }
+
+    render() {
+      const temperature = this.state.temperature;
+      return (
+        <fieldset>
+          <legend>Enter temperature in {scaleName[this.props.scale]}</legend>
+          <input type="number" value={temperature} onChange={this.handleChange}/>
+          <BoilingVerdict celsius={parseFloat(temperature)}/>
+        </fieldset>
+      );
+    }
+
+  }
+
+
+  const element = (
+    <div>
+      <Calculator scale="f"/>
+      <Calculator scale="c"/>
+    </div>
+  );
+
+  ReactDOM.render(
+    element,
+    document.getElementById('root')
+  );
+
+
+</script>
+</body>
+</html>

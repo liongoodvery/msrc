@@ -3,7 +3,9 @@ include ../Makefile.inc
 GEN_EXE=Sample \
 		Test \
 		fifoserver \
-		fifoclient
+		fifoclient \
+		pipe \
+		pipe_in_out
 
 EXE=${GEN_EXE}
 

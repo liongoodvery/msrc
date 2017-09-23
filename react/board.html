@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <title>List</title>
+    <script src="bower_components/react/react.js"></script>
+    <script src="bower_components/react/react-dom.js"></script>
+    <script src="bower_components/babel/browser.js"></script>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+
+
+  class ListItem extends React.Component {
+    constructor(props) {
+      super(props);
+    }
+
+    render() {
+      return (
+          <li>{this.props.item}</li>
+      );
+    }
+  };
+
+  class List extends React.Component {
+    constructor(props) {
+      super(props);
+    }
+
+    render() {
+      return (
+          <ul>
+            {
+              this.props.items.map(
+                (item, index) => (
+                    <ListItem key={index} item={item}/>
+                )
+              )
+            }
+          </ul>
+      );
+    }
+  };
+
+  class App extends React.Component {
+
+    constructor(props) {
+      super(props);
+      this.state = {
+        items: []
+      };
+      this.addItem = this.addItem.bind(this);
+    }
+
+    addItem() {
+      const v = this.refs.text_input.value;
+      this.state.items.push(v);
+      this.setState({items: this.state.items});
+      this.refs.text_input.value = "";
+    }
+
+    render() {
+      return (
+          <div>
+              <input ref="text_input" type="text" onChange={this.handleChange}/>
+              <input type="button" value="submit" onClick={this.addItem}/>
+              <List items={this.state.items}/>
+          </div>
+      );
+    }
+  }
+
+  const app = (
+      <App/>
+  );
+
+  ReactDOM.render(
+    app,
+    document.getElementById('root')
+  );
+
+
+</script>
+</body>
+</html>

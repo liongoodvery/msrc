@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <title>Mailbox</title>
+    <script src="bower_components/react/react.js"></script>
+    <script src="bower_components/react/react-dom.js"></script>
+    <script src="bower_components/babel/browser.js"></script>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+
+    function MailBox(props) {
+        const messages = props.messages;
+
+        return (
+                <div>
+                    <h2>Hello </h2>
+                    {
+                        messages.length > 0 &&
+                        <h3>
+                            you have  {messages.length} messages.
+                        </h3>
+                    }
+                </div>
+        );
+
+    }
+
+
+    const messages = ['hello', 'you'];
+    const element = (
+            <div>
+                <MailBox messages={messages}/>
+            </div>
+    );
+
+    ReactDOM.render(
+        element,
+        document.getElementById('root')
+    );
+
+
+</script>
+</body>
+</html>

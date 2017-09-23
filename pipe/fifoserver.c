@@ -18,7 +18,7 @@ int main(){
         if(fd==-1){
             fprintf(stderr,"open error");
         }
-
+        printf("fd=%d\n",fd);
         char buf[BUF_SIZE];
         int readnum;
 

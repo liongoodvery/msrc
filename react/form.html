@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <title>Form</title>
+  <script src="bower_components/react/react.js"></script>
+  <script src="bower_components/react/react-dom.js"></script>
+  <script src="bower_components/babel/browser.js"></script>
+</head>
+<div id="root"></div>
+
+<script type="text/babel">
+  class NameForm extends React.Component {
+    constructor(props) {
+      super(props);
+      this.state = {
+        isGoing: true,
+        numberOfGuests: 10
+      };
+      this.handleChange = this.handleChange.bind(this);
+      this.handleSubmit = this.handleSubmit.bind(this);
+
+    }
+
+    handleChange(e) {
+      const target = e.target;
+
+      const v = target.type == 'checkbox' ? target.checked : target.value;
+      const name = target.name;
+      this.setState({
+        [name]: v
+      });
+    }
+
+    handleSubmit(e) {
+      e.preventDefault();
+      console.log('submit ', this.state.value);
+    }
+
+    render() {
+
+      return (
+
+        <form onSubmit={this.handleSubmit}>
+          <label>
+            Is going:
+            <input
+              type="checkbox"
+              name="isGoing"
+              checked={this.state.isGoing}
+              onChange={this.handleChange}
+            />
+          </label>
+          <label>
+            Number of guests:
+            <input
+              type="number"
+              name="numberOfGuests"
+              value={this.state.numberOfGuests}
+              onChange={this.handleChange}
+            />
+
+
+          </label>
+        </form>
+      );
+    }
+
+  }
+
+
+  const element = (
+    <div>
+      <NameForm/>
+    </div>
+  );
+
+  ReactDOM.render(
+    element,
+    document.getElementById('root')
+  );
+</script>
+</body>
+</html>
